@@ -74,3 +74,39 @@ const iQuestions = [
     }   
 ];
 
+// need options for adding more employees
+
+const addMore = [
+    {
+        type: "list",
+        name: "addMore",
+        message: "Would you like to add another employee?",
+        choices: ["Engineer", "Intern", "Done"]
+    }
+];
+
+function nextEmployee() {
+    // switch function to add type of employee engineer, intern, or done 
+    inquirer.prompt(addMore).then(function(answer) {
+        switch (answer.addMore){
+            case "Engineer":
+                eQuestions();
+                break;
+            case "Intern":
+                iQuestions();
+                break;
+            case "Done":
+                console.log("Your team is being created!");
+                makeLineUp();
+        }
+    })
+}
+
+// functions for each section of the team building process
+
+function manager() {
+    inquirer.prompt(mQuestions).then(function(answer) {
+      ;
+    }
+    );
+}
