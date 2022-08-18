@@ -1,0 +1,28 @@
+<!-- class Intern extends Employee {
+    constructor(name, id, email, school) {
+        super(name, id, email);
+        this.school = school;
+    }
+    getSchool() {
+        return this.school;
+    }
+    getRole() {
+        return 'Intern';
+    }
+}; -->
+
+
+
+<div class="card employee">
+    <div class="card-header">
+        <h3 class="card-title">${name}</h3>
+        <h4 class="card-title"><i class="fas fa-glasses mr-2"></i>${role}</h4>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${id}</li>
+            <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
+            <li class="list-group-item">Github:<a href="${github}">${github}</a></li>
+        </ul>
+    </div>
+</div>
