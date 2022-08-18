@@ -5,7 +5,6 @@ const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const { inherits } = require("util");
 
 
 
@@ -27,6 +26,11 @@ const mQuestions = [
         name: "managerEmail",
         message: "What is your manager's email?"
     },
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "What is your manager's office number?"
+    }
 ];
 
 const eQuestions = [
@@ -80,7 +84,7 @@ const iQuestions = [
 const addMore = [
     {
         type: "list",
-        name: "addMore",
+        name: "addEmployee",
         message: "Would you like to add another employee?",
         choices: ["Engineer", "Intern", "Done"]
     }
@@ -89,12 +93,12 @@ const addMore = [
 function nextEmployee() {
     // switch function to add type of employee engineer, intern, or done 
     inquirer.prompt(addMore).then(function(answer) {
-        switch (answer.addMore){
+        switch (answer.addEmployee) {
             case "Engineer":
-                eQuestions();
+                engineer();
                 break;
             case "Intern":
-                iQuestions();
+                intern();
                 break;
             case "Done":
                 console.log("Your team is being created!");
@@ -106,17 +110,31 @@ function nextEmployee() {
 // functions for each section of the team building process
 
 function manager() {
-    inquirer.prompt(mQuestions).then(function(answer) {
-      
+    inquirer.prompt(mQuestions).then((answer) => {
+        const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail);
+        console.log(manager);
+        nextEmployee();
     }
     );
 }
 
 function engineer() {
+    inquirer.prompt(eQuestions).then((answer) => {
+        const engineer = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.engineerGithub);
+        console.log(engineer);
+        nextEmployee();
+    }
+    );
 
 }
 
 function intern() {
+    inquirer.prompt(iQuestions).then((answer) => {
+        const intern = new Intern(answer.internName, answer.internId, answer.internEmail, answer.internSchool);
+        console.log(intern);
+        nextEmployee();
+    }
+    );
 
 }
 
@@ -126,7 +144,7 @@ function makeLineUp() {
 }
 
 function init() {
-    
+    manager();
 }
 
 init();
