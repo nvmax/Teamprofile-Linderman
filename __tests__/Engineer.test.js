@@ -1,17 +1,3 @@
-// class Engineer extends Employee {
-//     constructor(name, id, email, github) {
-//         super(name, id, email);
-//         this.github = github;
-//     }
-//     getGithub() {
-//         return this.github;
-//     }
-//     getRole() {
-//         return 'Engineer';
-//     }
-// };
-// using format from above to make tests easier to read
-
 const Engineer = require('../lib/Engineer');
 // tests github user consttructor
 test('github user constructor', () => {

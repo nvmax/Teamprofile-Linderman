@@ -6,6 +6,10 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const teamArr = [];
+// const a path to dist folder for output
+const outputPath = path.resolve(__dirname, "dist", "myteam.html");
+const emps = require("./lib/Maker");
 
 
 
@@ -75,7 +79,7 @@ const iQuestions = [
     {
         type: "input",
         name: "internSchool",
-        message: "What is your intern's school?"
+        message: "What is the home page of your intern's school?"
     }   
 ];
 
@@ -111,8 +115,10 @@ function nextEmployee() {
 
 function manager() {
     inquirer.prompt(mQuestions).then((answer) => {
-        const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail);
+        const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.officeNumber);
         console.log(manager);
+        // send answers to teamArray
+        teamArr.push(manager);
         nextEmployee();
     }
     );
@@ -122,6 +128,8 @@ function engineer() {
     inquirer.prompt(eQuestions).then((answer) => {
         const engineer = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.engineerGithub);
         console.log(engineer);
+        // send answers to teamArray
+        teamArr.push(engineer);
         nextEmployee();
     }
     );
@@ -132,15 +140,23 @@ function intern() {
     inquirer.prompt(iQuestions).then((answer) => {
         const intern = new Intern(answer.internName, answer.internId, answer.internEmail, answer.internSchool);
         console.log(intern);
+        // send answers to teamArray
+        teamArr.push(intern);
         nextEmployee();
     }
     );
-
 }
 
 // make group function
 function makeLineUp() {
-     fs.writeFile()
+    fs.writeFile(outputPath, emps(teamArr), function(err) {
+        if (err) {
+            throw err;
+        }
+        console.log("Your team is being created!");
+    }
+    );
+
 }
 
 function init() {

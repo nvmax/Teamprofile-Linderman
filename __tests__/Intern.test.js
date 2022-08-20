@@ -1,16 +1,3 @@
-// class Intern extends Employee {
-//     constructor(name, id, email, school) {
-//         super(name, id, email);
-//         this.school = school;
-//     }
-//     getSchool() {
-//         return this.school;
-//     }
-//     getRole() {
-//         return 'Intern';
-//     }
-// };
-// using format from above to make tests easier to read
 const Intern = require('../lib/Intern');
 
 // tests school constructor

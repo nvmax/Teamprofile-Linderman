@@ -1,28 +1,3 @@
-// employee tests for the Employee class
-
-
-// class Employee {
-//     constructor(name, id, email) {
-//         this.name = name;
-//         this.id = id;
-//         this.email = email;
-//     }
-//     getName() {
-//         return this.name;
-//     }
-//     getId() {
-//         return this.id;
-//     }
-//     getEmail() {
-//         return this.email;
-//     }
-//     getRole() {
-//         return 'Employee';
-//     }
-// };
-
-// using format from above to make tests easier to read
-
 const Employee = require('../lib/Employee');
 // tests for the Employee class constructor
 test ('instantiates an Employee object', () => {

@@ -1,16 +1,3 @@
-// class Manager extends Employee {
-//     constructor(name, id, email, officeNumber) {
-//         super(name, id, email);
-//         this.officeNumber = officeNumber;
-//     }
-//     getOfficeNumber() {
-//         return this.officeNumber;
-//     }
-//     getRole() {
-//         return 'Manager';
-//     }
-// };
-// using format from above to make tests easier to read
 const Manager = require('../lib/Manager');
 
 // tests constructor 
