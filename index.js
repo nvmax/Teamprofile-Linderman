@@ -105,18 +105,17 @@ function nextEmployee() {
                 intern();
                 break;
             case "Done":
-                console.log("Your team is being created!");
                 makeLineUp();
         }
     })
 }
 
 // functions for each section of the team building process
+// send to team array - Thanks TA Eric for help with this 
 
 function manager() {
     inquirer.prompt(mQuestions).then((answer) => {
         const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.officeNumber);
-        console.log(manager);
         // send answers to teamArray
         teamArr.push(manager);
         nextEmployee();
@@ -127,7 +126,6 @@ function manager() {
 function engineer() {
     inquirer.prompt(eQuestions).then((answer) => {
         const engineer = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.engineerGithub);
-        console.log(engineer);
         // send answers to teamArray
         teamArr.push(engineer);
         nextEmployee();
@@ -139,7 +137,6 @@ function engineer() {
 function intern() {
     inquirer.prompt(iQuestions).then((answer) => {
         const intern = new Intern(answer.internName, answer.internId, answer.internEmail, answer.internSchool);
-        console.log(intern);
         // send answers to teamArray
         teamArr.push(intern);
         nextEmployee();
